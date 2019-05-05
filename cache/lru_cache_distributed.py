@@ -2,7 +2,7 @@ from .lru_cache import LRUCache
 from .utils.cache_node import CacheNode
 from .utils.cache_types import Address, ValueLoadCallBack, CacheKey, CacheValue, NetworkPackage
 from .utils.constants import DEFAULT_MAXIMUM_CAPACITY, DEFAULT_EXPIRATION_TIME, DEFAULT_CONNECTION_TIMEOUT, \
-    SET_NODE_MESSAGE
+    SET_NODE_MESSAGE, MOVE_NODE_TO_START_MESSAGE
 
 
 class LRUCacheDistributed(LRUCache):
@@ -52,7 +52,15 @@ class LRUCacheDistributed(LRUCache):
                             cache_node: CacheNode,
                             from_server: bool = False,
                             origin_client: Address = None) -> CacheValue:
-        pass
+        data = {
+            'action': MOVE_NODE_TO_START_MESSAGE,
+            'node': cache_node
+        }
+        self._forward_data(data, from_server, origin_client)
+        return LRUCache._move_node_to_start(
+            self,
+            cache_node
+        )
 
     def _connect(self) -> None:
         pass
