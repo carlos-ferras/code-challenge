@@ -46,10 +46,24 @@ class DoublyLinkedListCache:
         self.length -= 1
 
     def delete_start_node(self) -> None:
-        pass
+        if self.start_node is not None:
+            if self.start_node.next_node is not None:
+                self.start_node.next_node.previous_node = None
+            else:
+                self.last_node = None
+            del self._node_references[self.start_node.key]
+            self.start_node = self.start_node.next_node
+            self.length -= 1
 
     def delete_last_node(self) -> None:
-        pass
+        if self.last_node is not None:
+            if self.last_node.previous_node is not None:
+                self.last_node.previous_node.next_node = None
+            else:
+                self.start_node = None
+            del self._node_references[self.last_node.key]
+            self.last_node = self.last_node.previous_node
+            self.length -= 1
 
     def get_node_by_key(self, key: CacheKey) -> CacheNode:
         return self._node_references[key]
