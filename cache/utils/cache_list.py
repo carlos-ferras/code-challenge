@@ -15,7 +15,15 @@ class DoublyLinkedListCache:
                  key: CacheKey,
                  value: CacheValue,
                  expire_at: datetime) -> CacheNode:
-        pass
+        self._node_references[key] = CacheNode(key, value, expire_at, self.start_node)
+        if self.start_node is not None:
+            self.start_node.previous_node = self._node_references[key]
+        else:
+            self.last_node = self._node_references[key]
+        self.start_node = self._node_references[key]
+        self.length += 1
+
+        return self._node_references[key]
 
     def move_node_to_start(self, node: CacheNode) -> None:
         pass
