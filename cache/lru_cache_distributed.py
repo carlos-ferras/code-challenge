@@ -1,7 +1,8 @@
 from .lru_cache import LRUCache
 from .utils.cache_node import CacheNode
 from .utils.cache_types import Address, ValueLoadCallBack, CacheKey, CacheValue, NetworkPackage
-from .utils.constants import DEFAULT_MAXIMUM_CAPACITY, DEFAULT_EXPIRATION_TIME, DEFAULT_CONNECTION_TIMEOUT
+from .utils.constants import DEFAULT_MAXIMUM_CAPACITY, DEFAULT_EXPIRATION_TIME, DEFAULT_CONNECTION_TIMEOUT, \
+    SET_NODE_MESSAGE
 
 
 class LRUCacheDistributed(LRUCache):
@@ -33,7 +34,19 @@ class LRUCacheDistributed(LRUCache):
             expiration_time: int = None,
             from_server: bool = False,
             origin_client: Address = None) -> CacheValue:
-        pass
+        data = {
+            'action': SET_NODE_MESSAGE,
+            'key': key,
+            'value': value,
+            'expiration_time': expiration_time
+        }
+        self._forward_data(data, from_server, origin_client)
+        return LRUCache.set(
+            self,
+            key,
+            value,
+            expiration_time
+        )
 
     def _move_node_to_start(self,
                             cache_node: CacheNode,
