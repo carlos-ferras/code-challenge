@@ -30,7 +30,7 @@ class DoublyLinkedListCache:
         pass
 
     def get_node_by_key(self, key: CacheKey) -> CacheNode:
-        pass
+        return self._node_references[key]
 
     def has_node_by_key(self, key: CacheKey) -> bool:
-        pass
+        return key in self._node_references
