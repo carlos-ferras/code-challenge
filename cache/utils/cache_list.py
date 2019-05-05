@@ -37,7 +37,13 @@ class DoublyLinkedListCache:
         self.start_node = node
 
     def delete_node_by_key(self, key: CacheKey) -> None:
-        pass
+        node = self._node_references[key]
+        if node.previous_node is not None:
+            node.previous_node.next_node = node.next_node
+        if node.next_node is not None:
+            node.next_node.previous_node = node.previous_node
+        del self._node_references[key]
+        self.length -= 1
 
     def delete_start_node(self) -> None:
         pass
