@@ -26,7 +26,15 @@ class DoublyLinkedListCache:
         return self._node_references[key]
 
     def move_node_to_start(self, node: CacheNode) -> None:
-        pass
+        if node.previous_node and node == self.last_node:
+            self.last_node = node.previous_node
+        if node.previous_node is not None:
+            node.previous_node.next_node = node.next_node
+        if node.next_node is not None:
+            node.next_node.previous_node = node.previous_node
+        node.next_node = self.start_node
+        self.start_node.previous_node = node
+        self.start_node = node
 
     def delete_node_by_key(self, key: CacheKey) -> None:
         pass
