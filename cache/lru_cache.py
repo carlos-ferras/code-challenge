@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from .utils.cache_list import DoublyLinkedListCache
 from .utils.cache_node import CacheNode
@@ -30,8 +30,19 @@ class LRUCache:
             value: CacheValue = None,
             expire_at: datetime = None,
             expiration_time: int = None) -> CacheValue:
-        pass
-    
+        self.cache.delete_node_by_key(key)
+
+        if self.cache.length == self.maximum_capacity:
+            self.cache.delete_last_node()
+
+        if value is None and self._load is not None:
+            value = self._load(key)
+        if expire_at is None:
+            expire_at = datetime.now() + timedelta(0, expiration_time or self.expiration_time)
+        self.cache.add_node(key, value, expire_at)
+
+        return value
+
     def _move_node_to_start(self, cache_node: CacheNode) -> CacheValue:
         self.cache.move_node_to_start(cache_node)
         return cache_node.value
