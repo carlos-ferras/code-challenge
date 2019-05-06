@@ -1,0 +1,33 @@
+dist: xenial
+sudo: required
+language: python
+
+python:
+    - '3.6'
+
+stages:
+    - test
+    - name: deploy
+      if: tag =~ cache OR tag =~ compare_versions OR tag =~ overlap
+
+before_install:
+    - pip install -r requirements.txt
+
+script:
+    - python3 -m pytest cache/lru_cache compare_versions/compare_versions overlap/overlap
+    - codecov
+      
+before_deploy: 
+    - cd $(bash before_deploy.sh)
+    - cp ../README.md ./
+    - cp ../LICENSE.txt ./
+    - cp ../setup.cfg ./
+
+deploy:
+    provider: pypi
+    user: carlos-ferras
+    password:
+        secure: PASWORD_TOKEN_HERE
+    on:
+        tags: true
+    skip_existing: true

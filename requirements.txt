@@ -1,0 +1,4 @@
+codecov==2.0.15
+pytest-cov==2.7.1
+pytest-flakes==4.0.0
+pytest-pep8==1.0.6

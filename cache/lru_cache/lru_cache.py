@@ -11,10 +11,12 @@ class LRUCache:
 
     """
 
-    def __init__(self,
-                 load_callback: ValueLoadCallBack,
-                 maximum_capacity: int = DEFAULT_MAXIMUM_CAPACITY,
-                 expiration_time: int = DEFAULT_EXPIRATION_TIME):
+    def __init__(
+        self,
+        load_callback: ValueLoadCallBack,
+        maximum_capacity: int = DEFAULT_MAXIMUM_CAPACITY,
+        expiration_time: int = DEFAULT_EXPIRATION_TIME
+    ):
         """
         :param load_callback: Method to call to load new content from the network,
             it is used if you try to get a key which does't exist yet,
