@@ -1,6 +1,7 @@
 ## Ormuco Code Challenge
 
 [![codecov](https://codecov.io/gh/carlos-ferras/code-challenge/branch/master/graph/badge.svg)](https://codecov.io/gh/carlos-ferras/code-challenge)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/72856449ef6b4bfa8b5075054186268b)](https://app.codacy.com/app/carlos-ferras/code-challenge?utm_source=github.com&utm_medium=referral&utm_content=carlos-ferras/code-challenge&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://travis-ci.com/carlos-ferras/code-challenge.svg?branch=master)](https://travis-ci.com/carlos-ferras/code-challenge)
 
 This project has been created only for demonstration purpose.
