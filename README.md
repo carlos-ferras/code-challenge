@@ -1,6 +1,7 @@
 ## Ormuco Code Challenge
 
 [![codecov](https://codecov.io/gh/carlos-ferras/code-challenge/branch/master/graph/badge.svg)](https://codecov.io/gh/carlos-ferras/code-challenge)
+[![Build Status](https://travis-ci.com/carlos-ferras/code-challenge.svg?branch=master)](https://travis-ci.com/carlos-ferras/code-challenge)
 
 This project has been created only for demonstration purpose.
 >
