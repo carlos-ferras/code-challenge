@@ -14,7 +14,6 @@ script:
 - codecov
 before_deploy:
 - cd $(bash before_deploy.sh)
-- cp ../README.md ./
 - cp ../LICENSE.txt ./
 - cp ../setup.cfg ./
 deploy:

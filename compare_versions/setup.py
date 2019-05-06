@@ -1,8 +1,8 @@
 from setuptools import setup
 
 setup(
-    name='Compare version strings',
-    version='0.0.1',
+    name='cf_compare_versions',
+    version='0.0.2',
     packages=['compare_versions'],
     url='https://github.com/carlos-ferras/code-challenge/compare_versions',
     license='MIT',

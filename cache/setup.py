@@ -1,8 +1,8 @@
 from setuptools import setup
 
 setup(
-    name='LRU Cache Distributed',
-    version='0.0.1',
+    name='cf_LRU_cache',
+    version='0.0.2',
     packages=['lru_cache'],
     url='https://github.com/carlos-ferras/code-challenge/cache',
     license='MIT',

@@ -1,8 +1,8 @@
 from setuptools import setup
 
 setup(
-    name='Check if 2 lines overlap',
-    version='0.0.1',
+    name='cf_lines_overlap',
+    version='0.0.2',
     packages=['overlap'],
     url='https://github.com/carlos-ferras/code-challenge/overlap',
     license='MIT',
