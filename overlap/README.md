@@ -9,8 +9,6 @@ This project has been created only for demonstration purpose.
 
 ### The Answer
 
-source directory: `./overlap`
-
 usage: 
 
 - Run `pip3 install cf_lines_overlap`

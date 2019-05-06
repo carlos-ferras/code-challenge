@@ -10,8 +10,6 @@ This project has been created only for demonstration purpose.
 
 ### The Answer
 
-source directory: `./compare_versions`
-
 - Run `pip3 install cf_compare_versions`
 
 usage: 

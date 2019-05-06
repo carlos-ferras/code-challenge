@@ -16,8 +16,6 @@ This project has been created only for demonstration purpose.
 
 ### The Answer
 
-source directory: `./cache`
-
 >
 > This feature is not finished yet, but the idea to implement is:
 > 1. In each remote server create a local cache
